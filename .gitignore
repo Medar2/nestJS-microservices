@@ -21,7 +21,8 @@ doc/api/
 *.js.map
 
 # dependencies
-/node_modules
+main/node_modules
+admin/node_modules
 
 # testing
 /coverage
