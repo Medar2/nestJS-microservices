@@ -21,8 +21,8 @@ doc/api/
 *.js.map
 
 # dependencies
-main/node_modules
-admin/node_modules
+main/node_modules/
+admin/node_modules/
 
 # testing
 /coverage
@@ -40,4 +40,7 @@ admin/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3ed5744f392e9eb114575f1632805f79f744e187

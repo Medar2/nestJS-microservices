@@ -15,11 +15,15 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
     transport: Transport.RMQ,
     options: {  // RabbitMQ options
-      urls: ['amqp://localhost:5672'],
-      queue: 'main_queue',
+      urls: ['aamqps://yvrewtoy:fc0LGe4rXdQjW6TWFPUHPxhX3UYh5Wij@fly.rmq.cloudamqp.com/yvrewtoy'],
+      queue: 'main_queue' ,
       queueOptions: { durable: false },
 
   }
   });
+
+  app.listen();
+  console.log('Microservice is listening');
+
 }
 bootstrap();

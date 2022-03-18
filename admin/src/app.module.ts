@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductController } from './product/product.controller';
@@ -17,10 +18,12 @@ import { ProductModule } from './product/product.module';
     autoLoadEntities: true,
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     synchronize: true,
-  }), ProductModule],
-  controllers: [AppController, ProductController],
+  }), ProductModule,
+],
+  controllers: [AppController],
   providers: [AppService,
   //  ProductService
+  //ProductModule
   ],
 })
 export class AppModule {}

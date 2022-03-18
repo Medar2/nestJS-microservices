@@ -11,7 +11,6 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const product_controller_1 = require("./product/product.controller");
 const product_module_1 = require("./product/product.module");
 let AppModule = class AppModule {
 };
@@ -27,8 +26,9 @@ AppModule = __decorate([
                 autoLoadEntities: true,
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
                 synchronize: true,
-            }), product_module_1.ProductModule],
-        controllers: [app_controller_1.AppController, product_controller_1.ProductController],
+            }), product_module_1.ProductModule,
+        ],
+        controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService,
         ],
     })

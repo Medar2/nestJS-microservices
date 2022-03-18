@@ -14,21 +14,25 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
 const common_1 = require("@nestjs/common");
+const microservices_1 = require("@nestjs/microservices");
 const product_service_1 = require("./product.service");
 let ProductController = class ProductController {
-    constructor(productService) {
+    constructor(productService, client) {
         this.productService = productService;
+        this.client = client;
     }
-    all() {
+    async all() {
+        console.log('all');
+        this.client.emit('hello', 'Hello from RabbitMQ!');
         return this.productService.findAll();
     }
-    create(title, image) {
+    async create(title, image) {
         return this.productService.create({
             title,
             image,
         });
     }
-    asyngetOne(id) {
+    async getOne(id) {
         return this.productService.findOne(id);
     }
     async update(id, title, image) {
@@ -45,7 +49,7 @@ __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ProductController.prototype, "all", null);
 __decorate([
     (0, common_1.Post)(),
@@ -53,15 +57,15 @@ __decorate([
     __param(1, (0, common_1.Body)('image')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ProductController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)('/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], ProductController.prototype, "asyngetOne", null);
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Put)('/:id'),
     __param(0, (0, common_1.Param)('id')),
@@ -79,8 +83,10 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "delete", null);
 ProductController = __decorate([
-    (0, common_1.Controller)('product'),
-    __metadata("design:paramtypes", [product_service_1.ProductService])
+    (0, common_1.Controller)('products'),
+    __param(1, (0, common_1.Inject)('PRODUCT_SERVICE')),
+    __metadata("design:paramtypes", [product_service_1.ProductService,
+        microservices_1.ClientProxy])
 ], ProductController);
 exports.ProductController = ProductController;
 //# sourceMappingURL=product.controller.js.map
