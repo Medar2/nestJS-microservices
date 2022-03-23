@@ -13,7 +13,7 @@ async function bootstrap() {
         }
     });
     app.listen();
-    console.log('Microservice is main_queue listening');
+    console.log('Microservice is listening');
 }
 bootstrap();
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main%20copy.js.map
