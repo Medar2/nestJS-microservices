@@ -21,20 +21,25 @@ export class ProductController {
             });
         }
 
-        @EventPattern('hello')
-        async hello(data: string) {
-            console.log('Entro en el evento hello');            
-        }
-
         @EventPattern('product_created')
-        async productCreate(product: any) {
+        async hello(product: any) {
             await this.productService.create({
                 id: product.id,
                 title: product.title,
                 image: product.image,
                 likes: product.likes
-            });
+            })
         }
+
+        // @EventPattern('product_created')
+        // async productCreate(product: any) {
+        //     await this.productService.create({
+        //         id: product.id,
+        //         title: product.title,
+        //         image: product.image,
+        //         likes: product.likes
+        //     });
+        // }
 
         @EventPattern('product_updated')
         async productUpdate(product: any) {

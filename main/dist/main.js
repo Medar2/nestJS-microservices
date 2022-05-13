@@ -12,6 +12,7 @@ async function bootstrap() {
             queueOptions: { durable: false },
         }
     });
+    app.setGlobalPrefix('api');
     app.listen();
     console.log('Microservice is main_queue listening');
 }

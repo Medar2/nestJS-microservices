@@ -16,8 +16,11 @@ export class ProductService {
     }
 
     async create(data): Promise<Product> {
-        const product = new this.productModel(data);
-        return await product.save();
+        // const product = new this.productModel(data);
+        // return await product.save();
+        console.log('Entro en el servicio');
+        return new  this.productModel(data).save();
+
     }
     async findOne(id): Promise<Product> {
         return await this.productModel.findById(id).exec();

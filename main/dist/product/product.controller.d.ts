@@ -4,8 +4,7 @@ export declare class ProductController {
     constructor(productService: ProductService);
     findAll(): Promise<import("./product.model").Product[]>;
     like(id: number): Promise<any>;
-    hello(data: string): Promise<void>;
-    productCreate(product: any): Promise<void>;
+    hello(product: any): Promise<void>;
     productUpdate(product: any): Promise<void>;
     productDelete(product: any): Promise<void>;
 }

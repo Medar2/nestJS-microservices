@@ -29,10 +29,7 @@ let ProductController = class ProductController {
             likes: product.likes + 1
         });
     }
-    async hello(data) {
-        console.log('Entro en el evento hello');
-    }
-    async productCreate(product) {
+    async hello(product) {
         await this.productService.create({
             id: product.id,
             title: product.title,
@@ -65,17 +62,11 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "like", null);
 __decorate([
-    (0, microservices_1.EventPattern)('hello'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Promise)
-], ProductController.prototype, "hello", null);
-__decorate([
     (0, microservices_1.EventPattern)('product_created'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], ProductController.prototype, "productCreate", null);
+], ProductController.prototype, "hello", null);
 __decorate([
     (0, microservices_1.EventPattern)('product_updated'),
     __metadata("design:type", Function),

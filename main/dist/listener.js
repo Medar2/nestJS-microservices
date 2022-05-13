@@ -5,7 +5,9 @@ const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.setGlobalPrefix('api');
-    app.enableCors({});
+    app.enableCors({
+        origin: 'http://localhots:4200'
+    });
     await app.listen(8001);
     console.log('Microservice is listening');
 }

@@ -25,8 +25,8 @@ let ProductService = class ProductService {
         return await this.productModel.find().exec();
     }
     async create(data) {
-        const product = new this.productModel(data);
-        return await product.save();
+        console.log('Entro en el servicio');
+        return new this.productModel(data).save();
     }
     async findOne(id) {
         return await this.productModel.findById(id).exec();
